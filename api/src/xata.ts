@@ -6,12 +6,73 @@ import type {
   XataRecord,
 } from "@xata.io/client";
 
-const tables = [] as const;
+const tables = [
+  {
+    name: "sets",
+    columns: [
+      { name: "title", type: "string" },
+      { name: "description", type: "text" },
+      { name: "private", type: "bool", defaultValue: "true" },
+      { name: "creator", type: "string" },
+      { name: "image", type: "file", file: { defaultPublicAccess: true } },
+      { name: "cards", type: "int", defaultValue: "0" },
+    ],
+    revLinks: [
+      { column: "set", table: "cards" },
+      { column: "set", table: "user_sets" },
+      { column: "set", table: "learnings" },
+    ],
+  },
+  {
+    name: "cards",
+    columns: [
+      { name: "question", type: "string" },
+      { name: "answer", type: "string" },
+      { name: "image", type: "file", file: { defaultPublicAccess: true } },
+      { name: "set", type: "link", link: { table: "sets" } },
+    ],
+  },
+  {
+    name: "user_sets",
+    columns: [
+      { name: "user", type: "string" },
+      { name: "set", type: "link", link: { table: "sets" } },
+    ],
+  },
+  {
+    name: "learnings",
+    columns: [
+      { name: "set", type: "link", link: { table: "sets" } },
+      { name: "user", type: "string" },
+      { name: "cards_total", type: "int" },
+      { name: "cards_wrong", type: "int" },
+      { name: "score", type: "float" },
+      { name: "cards_correct", type: "int" },
+    ],
+  },
+] as const;
 
 export type SchemaTables = typeof tables;
 export type InferredTypes = SchemaInference<SchemaTables>;
 
-export type DatabaseSchema = {};
+export type Sets = InferredTypes["sets"];
+export type SetsRecord = Sets & XataRecord;
+
+export type Cards = InferredTypes["cards"];
+export type CardsRecord = Cards & XataRecord;
+
+export type UserSets = InferredTypes["user_sets"];
+export type UserSetsRecord = UserSets & XataRecord;
+
+export type Learnings = InferredTypes["learnings"];
+export type LearningsRecord = Learnings & XataRecord;
+
+export type DatabaseSchema = {
+  sets: SetsRecord;
+  cards: CardsRecord;
+  user_sets: UserSetsRecord;
+  learnings: LearningsRecord;
+};
 
 const DatabaseClient = buildClient();
 
