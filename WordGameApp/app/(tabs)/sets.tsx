@@ -1,7 +1,7 @@
 import { View, Text} from 'react-native'
 import React from 'react'
 
-const Sets = () => {
+const Page = () => {
     return(
         <View>
             <Text>user sets</Text>
@@ -9,4 +9,4 @@ const Sets = () => {
     )
 }
 
-export default Sets
+export default Page
