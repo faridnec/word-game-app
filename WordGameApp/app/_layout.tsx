@@ -1,6 +1,7 @@
 import React from 'react'
 import { Stack } from 'expo-router'
 import Colors from '@/constants/Colors'
+import 'react-native-url-polyfill/auto';
 
 const Layout = () => {
   return (

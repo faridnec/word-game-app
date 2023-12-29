@@ -12,7 +12,6 @@ const Page = () =>{
             const id = await AsyncStorage.getItem(USER_STORAGE_KEY);
             if (!id) {
               const randomUserid = Math.random().toString(36);
-              console.log()
               await AsyncStorage.setItem(USER_STORAGE_KEY, randomUserid);
             }
             setHasID(true);
