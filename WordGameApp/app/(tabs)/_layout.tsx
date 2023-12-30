@@ -25,7 +25,7 @@ const Layout = () => {
                         <Ionicons name='home-outline' size={size} color={color} />
                     ),
                     headerRight: () => (
-                        <Link href='/' asChild>
+                        <Link href='/(modals)/set/create' asChild>
                             <TouchableOpacity style={{marginRight: 10}}>
                                 <Ionicons name='add-outline' size={26} color={'#fff'}/>
                             </TouchableOpacity>
