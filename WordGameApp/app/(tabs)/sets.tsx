@@ -30,7 +30,7 @@ const Page = () => {
               <View style={{ flex: 1 }}>
                 <Text style={styles.rowTitle}>{set.title}</Text>
                 <View style={{ flexDirection: 'row', gap: 4, marginTop: 10 }}>
-                  {/* <Link href={`/(learn)/${set.id}?limit=3`} asChild>
+                  <Link href={`/(learn)/${set.id}?limit=3`} asChild>
                     <TouchableOpacity style={defaultStyleSheet.button}>
                       <Text style={defaultStyleSheet.buttonText}>3 cards</Text>
                     </TouchableOpacity>
@@ -44,7 +44,7 @@ const Page = () => {
                     <TouchableOpacity style={defaultStyleSheet.button}>
                       <Text style={defaultStyleSheet.buttonText}>10 cards</Text>
                     </TouchableOpacity>
-                  </Link> */}
+                  </Link>
                   {canEdit && (
                     <Link href={`/(modals)/(cards)/${set.id}`} asChild>
                       <TouchableOpacity style={defaultStyleSheet.button}>
