@@ -46,8 +46,21 @@ const Layout = () => {
             // ),
           }}
         />
+
+        <Stack.Screen
+                name="(modals)/(cards)/[id]"
+                options={{
+                  presentation: 'modal',
+                  title: 'Update Set Cards',
+                  headerLeft: () => (
+                    <TouchableOpacity onPress={() => router.back()}>
+                      <Ionicons name="close-outline" size={24} color="#fff" />
+                    </TouchableOpacity>
+                  ),
+                }}
+              />
+            </Stack>
         
-    </Stack>
   )
 }
 

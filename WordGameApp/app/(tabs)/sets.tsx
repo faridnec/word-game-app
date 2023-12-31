@@ -17,8 +17,7 @@ const Page = () => {
     
     const loadSets = async () => {
         const data = await getMySets();
-        console.log("🚀 ~ file: sets.tsx:19 ~ loadSets ~ data:", data)
-        // setSets(data);
+        setSets(data);
     };
 
     const renderSetRow: ListRenderItem<{ id: string; set: Set; canEdit: boolean }> = ({
@@ -26,10 +25,38 @@ const Page = () => {
       }) => {
         
         return (
-            <View>
-                <Text>Test</Text>
+            <View style={styles.setRow}>
+            <View style={{ flexDirection: 'row' }}>
+              <View style={{ flex: 1 }}>
+                <Text style={styles.rowTitle}>{set.title}</Text>
+                <View style={{ flexDirection: 'row', gap: 4, marginTop: 10 }}>
+                  {/* <Link href={`/(learn)/${set.id}?limit=3`} asChild>
+                    <TouchableOpacity style={defaultStyleSheet.button}>
+                      <Text style={defaultStyleSheet.buttonText}>3 cards</Text>
+                    </TouchableOpacity>
+                  </Link>
+                  <Link href={`/(learn)/${set.id}?limit=6`} asChild>
+                    <TouchableOpacity style={defaultStyleSheet.button}>
+                      <Text style={defaultStyleSheet.buttonText}>6 cards</Text>
+                    </TouchableOpacity>
+                  </Link>
+                  <Link href={`/(learn)/${set.id}?limit=10`} asChild>
+                    <TouchableOpacity style={defaultStyleSheet.button}>
+                      <Text style={defaultStyleSheet.buttonText}>10 cards</Text>
+                    </TouchableOpacity>
+                  </Link> */}
+                  {canEdit && (
+                    <Link href={`/(modals)/(cards)/${set.id}`} asChild>
+                      <TouchableOpacity style={defaultStyleSheet.button}>
+                        <Text style={defaultStyleSheet.buttonText}>Edit</Text>
+                      </TouchableOpacity>
+                    </Link>
+                  )}
+                </View>
+              </View>
             </View>
-          );
+          </View>
+        );
       }
 
 

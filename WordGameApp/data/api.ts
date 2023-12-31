@@ -56,7 +56,9 @@ export const getMySets = async (): Promise<{ id: string; set: Set; canEdit: bool
 
   const response = await fetch(`${API_URL}/usersets?user=${user}`);
   const data = await response.json();
-  return data.map((item: any) => ({ ...item, canEdit: item.set.creator === user }));
+  return data
+    .filter((item: any) => item.set !== null && item.set !== undefined)
+    .map((item: any) => ({ ...item, canEdit: item.set.creator === user }));
 };
 
 export const getSet = async (id: string): Promise<Set> => {
