@@ -20,7 +20,7 @@ const Layout = () => {
             <Tabs.Screen 
                 name='sets'
                 options={{
-                    title: 'My Sets',
+                    title: 'Favorite Sets',
                     tabBarIcon: ({size,color}) => (
                         <Ionicons name='home-outline' size={size} color={color} />
                     ),
@@ -36,7 +36,7 @@ const Layout = () => {
             <Tabs.Screen 
                 name='search'
                 options={{
-                    title: 'Search',
+                    title: 'Sets',
                     tabBarIcon: ({size,color}) => (
                         <Ionicons name='search-outline' size={size} color={color} />
                     )
@@ -48,7 +48,14 @@ const Layout = () => {
                     title: 'Profile',
                     tabBarIcon: ({size,color}) => (
                         <Ionicons name='person-outline' size={size} color={color} />
-                    )
+                    ),
+                    // headerRight: () => (
+                    //     <Link href='/(modals)/set/create' asChild>
+                    //         <TouchableOpacity style={{marginRight: 10}}>
+                    //             <Ionicons name='add-outline' size={26} color={'#fff'}/>
+                    //         </TouchableOpacity>
+                    //     </Link>
+                    // )
                 }}
             />
         </Tabs>

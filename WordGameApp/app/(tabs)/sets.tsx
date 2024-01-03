@@ -29,6 +29,7 @@ const Page = () => {
             <View style={{ flexDirection: 'row' }}>
               <View style={{ flex: 1 }}>
                 <Text style={styles.rowTitle}>{set.title}</Text>
+                <Text style={{ color: '#666' }}>{set.description}</Text>
                 <View style={{ flexDirection: 'row', gap: 4, marginTop: 10 }}>
                   <Link href={`/(learn)/${set.id}?limit=3`} asChild>
                     <TouchableOpacity style={defaultStyleSheet.button}>
@@ -40,11 +41,11 @@ const Page = () => {
                       <Text style={defaultStyleSheet.buttonText}>6 cards</Text>
                     </TouchableOpacity>
                   </Link>
-                  <Link href={`/(learn)/${set.id}?limit=10`} asChild>
+                  {/* <Link href={`/(learn)/${set.id}?limit=10`} asChild>
                     <TouchableOpacity style={defaultStyleSheet.button}>
                       <Text style={defaultStyleSheet.buttonText}>10 cards</Text>
                     </TouchableOpacity>
-                  </Link>
+                  </Link> */}
                   {canEdit && (
                     <Link href={`/(modals)/(cards)/${set.id}`} asChild>
                       <TouchableOpacity style={defaultStyleSheet.button}>
@@ -61,7 +62,8 @@ const Page = () => {
 
 
     return(
-        <View style={styles.container}>
+
+      <View style={styles.container}>
         {!sets.length && (
           <Link href={'/(tabs)/search'} asChild>
             <TouchableOpacity style={{}}>

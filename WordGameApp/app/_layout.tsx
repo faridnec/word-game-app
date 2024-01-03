@@ -5,10 +5,12 @@ import 'react-native-url-polyfill/auto';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { Ionicons } from '@expo/vector-icons';
 import { defaultStyleSheet } from '@/constants/Styles';
+import { useAuth } from './context/AuthContext';
 
 const Layout = () => {
 
   const router = useRouter();
+  // const { authState, onLogout} = useAuth();
 
   return (
     <Stack
@@ -21,6 +23,7 @@ const Layout = () => {
     >
         <Stack.Screen name='(tabs)' options={{ headerShown: false}} />
         <Stack.Screen name="(learn)/[id]" options={{ title: 'Learn' }} />
+        {/* <Stack.Screen name="screens/Login" options={{title: 'Login'}} /> */}
 
         <Stack.Screen
           name='(modals)/set/[id]'
@@ -40,11 +43,11 @@ const Layout = () => {
           options={{
             presentation: 'modal',
             title: 'Create Card Set',
-            // headerLeft: () => (
-            //   <TouchableOpacity onPress={() => router.back()}>
-            //     <Ionicons name='close-outline' size={24} color={'#fff'} />
-            //   </TouchableOpacity>
-            // ),
+            headerLeft: () => (
+              <TouchableOpacity onPress={() => router.back()}>
+                <Ionicons name='close-outline' size={24} color={'#fff'} />
+              </TouchableOpacity>
+            ),
           }}
         />
 
