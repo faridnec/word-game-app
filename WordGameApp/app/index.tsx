@@ -21,7 +21,7 @@ const Page = () =>{
     }, []);
 
     if (hasID) {
-        return <Redirect href="/(tabs)/sets" />;
+        return <Redirect href="/(tabs)/search" />;
       } else {
         return <View />;
       }

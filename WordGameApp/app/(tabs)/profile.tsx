@@ -67,7 +67,7 @@ const Profile = () => {
         <View style={defaultStyleSheet.container}>
         <Text style={defaultStyleSheet.header}>{sets.length} sessions</Text>
         <FlatList
-          data={validSets}
+          data={sets}
           renderItem={renderSetRow}
           refreshControl={<RefreshControl refreshing={isRefreshing} onRefresh={loadProgress} />}
         />
